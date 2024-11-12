@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Liturgique</title>
+    <link rel="icon" href="./IMAGES/Icon.jfif" type="image/png">
+    <link rel="stylesheet" href="vierge-marie.css">
+</head>
+<body>
+    <div class="page-layout">
+        <!-- Colonne latérale gauche -->
+        <div class="side-column">
+            <!-- Contenu optionnel ou décoratif ici -->
+            <div class="pub-column">
+                <a href="https://www.amazon.fr/SAINTE-BIBLE-DARBY-2022-Nouvelle/dp/2970154706?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AAM4LBRNSI1SA" target="_blank">
+                    <img src="./IMAGES/Bible.jfif" alt="">
+                </a>
+                <div class="text-column">
+                    <a href="https://www.amazon.fr/SAINTE-BIBLE-DARBY-2022-Nouvelle/dp/2970154706?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AAM4LBRNSI1SA" target="_blank">
+                        <h2>Pour vous guidez vers le droit chemin</h2>
+                    </a>
+                </div>  
+                    <div class="clicker-container">
+                        <h1>Compteur de Clics</h1>
+                        <p id="counter">0</p>
+                        <button id="click-button">Cliquez ici !</button>
+                    </div>
+            </div>
+                
+        </div>
+                
+        <!-- Contenu principal -->
+        <div class="container">
+            <div class="selection-container">
+                <h1 class="title">Calendrier Liturgique</h1>
+                <p class="subtitle">Calcul des fêtes mobiles et années bissextiles</p>
+                <h2 class="section-title">Sélectionner une année</h2>
+                
+                <div class="controls">
+                    <button id="prevYear" class="year-nav-button">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <input type="number" id="yearInput" class="year-input" min="1" max="99999" placeholder="2024">
+                    <button id="nextYear" class="year-nav-button">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="bissextileCard" class="result-card">
+                <h2 class="section-title">Année <span id="yearDisplay"></span></h2>
+                <div id="bissextileResult" class="result-text"></div>
+            </div>
+            <div id="fetesCard" class="result-card" style="display: none;">
+                <h2 class="section-title"><a href="https://fr.wikipedia.org/wiki/F%C3%AAte_mobile#:~:text=Dans%20le%20christianisme%2C%20une%20f%C3%AAte,jours%20au%20fil%20des%20ans." target="_blank">Fêtes Mobiles</a></h2>
+                <div id="fetesList" class="my-4"></div>
+            </div>
+        </div>
+
+        <!-- Colonne latérale droite -->
+        <div class="side-column">
+            <div class="pub-column">
+                    <!-- Contenu optionnel ou décoratif ici -->
+                    <a href="https://eglise.catholique.fr/approfondir-sa-foi/la-celebration-de-la-foi/les-sacrements/lordination/lordination-des-pretres/456634-devient-on-pretre/" target="_blank">
+                    <img src="./IMAGES/prêtre noir.jpg" alt=""> 
+                    </a>
+                <div class="text-column">
+                    <a href="https://eglise.catholique.fr/approfondir-sa-foi/la-celebration-de-la-foi/les-sacrements/lordination/lordination-des-pretres/456634-devient-on-pretre/" target="_blank">
+                     <h2>Venez vous former avec nous </h2>
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <script src="vierge-marie.js"></script>
+</body>
+</html>

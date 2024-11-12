@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendrier Liturgique</title>
+        <link rel="icon" href="./IMAGES/Icon.jfif" type="image/png">
+        <link rel="stylesheet" href="vierge-marie.css">
+    </head>
+    <body>
+        <div class="page-layout">
+            <!-- Colonne latérale gauche -->
+            <div class="side-column">
+            <!-- Contenu optionnel ou décoratif ici -->
+                <div class="pub-column">
+                    <a id="specialLink" href="#" target="_blank"><img src="./IMAGES/Bible.jfif" alt="">
+                        <div class="text-column">
+                            <h2>Pour vous guidez vers le droit chemin</h2>
+                        </div>
+                    </a>  
+                    <div class="clicker-container">
+                        <div class="title-container">
+                            <h1>Hostie Clicker</h1>
+                        </div>
+                        <div class="counter-container">
+                            <button id="click-button">
+                                <img src="../PROJET-VIERGE-MARIE/IMAGES/Hostie.jfif" width="45px" class="img-clicker">
+                            </button>
+                            <p id="counter" class="hostie-counter">0 hosties</p>
+                        </div>
+                        <div class="purchase-container">
+                            <div class="purchase-item">
+                                <img src="../PROJET-VIERGE-MARIE/IMAGES/prêtre clicker.jpg" alt="Prêtre" class="item-icon">
+                                <span id="priest-count">0</span>
+                                <button id="buy-priest-button">Acheter un prêtre (20 hosties)</button>
+                            </div>
+                            <div class="purchase-item" id="church-container">
+                                <img src="../PROJET-VIERGE-MARIE/IMAGES/église.jfif" alt="Église" class="item-icon">
+                                <span id="church-count">0</span>
+                                <button id="buy-church-button" disabled>Acheter une église (500 hosties)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenu principal -->
+            <div class="container">
+                <div class="selection-container">
+                    <h1 class="title">Calendrier Liturgique</h1>
+                    <p class="subtitle">Calcul des fêtes mobiles et années bissextiles</p>
+                    <h2 class="section-title">Sélectionner une année</h2>
+                    <div class="controls">
+                        <button id="prevYear" class="year-nav-button">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <input type="number" id="yearInput" class="year-input" min="-99999" max="99999" placeholder="2024">
+                        <button id="nextYear" class="year-nav-button">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-columns">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div id="bissextileCard" class="result-card">
+                    <h2 class="section-title">Année <span id="yearDisplay"></span></h2>
+                    <div id="bissextileResult" class="result-text">
+                    </div>
+                </div>
+                <div id="fetesCard" class="result-card" style="display: none;">
+                    <h2 class="section-title"><a href="https://fr.wikipedia.org/wiki/F%C3%AAte_mobile#:~:text=Dans%20le%20christianisme%2C%20une%20f%C3%AAte,jours%20au%20fil%20des%20ans." target="_blank">Fêtes Mobiles</a></h2>
+                    <div id="fetesList" class="my-4">
+                    </div>
+                </div>
+            </div>
+            <!-- Colonne latérale droite -->
+            <div class="side-column">
+                <div class="pub-column">
+                    <!-- Contenu optionnel ou décoratif ici -->
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/2Xn1Bb697A0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>    
+                    <div class="text-column">
+                        <a href="https://eglise.catholique.fr/approfondir-sa-foi/la-celebration-de-la-foi/les-sacrements/lordination/lordination-des-pretres/456634-devient-on-pretre/" target="_blank">
+                            <h2>Venez vous former avec nous </h2>
+                        </a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <script src="vierge-marie.js"></script>
+    </body>
+</html>
