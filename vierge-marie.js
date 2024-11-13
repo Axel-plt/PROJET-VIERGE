@@ -206,7 +206,7 @@ document.getElementById('toggle-columns').addEventListener('change', function() 
 let count = 0;  // Nombre de hosties
 let priestCount = 0;  // Nombre de prêtres possédés
 let churchCount = 0;  // Nombre d'églises possédées
-let priestCost = 20;  // Coût initial du prêtre
+let priestCost = 10;  // Coût initial du prêtre
 let churchCost = 500;  // Coût initial de l'église (débloqué à 5000 hosties)
 let hostiesPerSecond = 0;  // Hosties générées par seconde
 
@@ -244,7 +244,7 @@ function buyPriest() {
     priestCount += 1;
     hostiesPerSecond += 1;  // 1 hostie par seconde par prêtre
 
-    priestCost = Math.floor(priestCost * 1.3);  // Coût exponentiel
+    priestCost = Math.floor(priestCost * 1.1);  // Coût exponentiel
     updateDisplay();
   }
 }
@@ -273,7 +273,7 @@ function updateDisplay() {
   buyChurchButton.disabled = count < churchCost || count < 2500;
   buyPriestButton.disabled = count < priestCost;
 
-  if (count >= 5000) {
+  if (count >= 2500) {
     churchContainer.style.display = "flex";
   }
 }
