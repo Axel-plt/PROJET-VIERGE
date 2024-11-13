@@ -13,6 +13,10 @@ yearDisplay.textContent = currentYear;
 
 // Calcul année bissextile
 function isBissextile(year) {
+    if (year === 0) {
+        // Si l'année est 0, on retourne false ici, mais la logique de texte sera gérée plus tard
+        return null;  // Utilisation de null pour signaler un cas spécial (année 0)
+    }
     if (year < -46) {
         // Les années avant -46 ne sont jamais bissextiles
         return false;
@@ -99,84 +103,20 @@ function checkZero(input) {
     }
 }
 
-function updateDisplay() {
-    const year = parseInt(yearInput.value);
-    yearDisplay.textContent = year;
-
-    // Affichage année bissextile
-    const bissextile = isBissextile(year);
-    bissextileResult.className = `p-4 rounded-lg text-center text-lg ${bissextile ? 'bg-green-100 bissextile' : 'bg-orange-100'}`;
-    bissextileResult.textContent = bissextile ? 
-        "✨ Cette année est bissextile ✨" : 
-        "Cette année n'est pas bissextile";
-        // Appliquer une classe conditionnelle sur le body si l'année est "666"
-        if (year === 666) {
-        document.body.classList.add('background-special'); // Ajoute une classe pour le fond spécial
-        // Modifier le lien pour l'année 666
-        if (specialLink) {
-            specialLink.href = "https://www.amazon.fr/Ave-Satani-Bible-noire-diable/dp/2357799846/ref=sr_1_1?dib=eyJ2IjoiMSJ9.iiImnnl-NkweKzlaHCoTJKYBU0pNsNE7Deg3FkR_lzwm08W5j4Q2Z5g1fdrz_-shAjigxzk-X5Fl0q456Nkr0YYbifA0NC-owBKvVmJ-pkaVDCUoGcWnf0eiIVuEvbMZtpuXCPrZrgo6u5yb9tZwDptRy7uZiRpTntf7fgYie8GIgqDPMyn2tZrBCO7essb4OdpYEs5DSnOSHp6ffUra-dqq8LnkTL8pY_RjiqN-Kdb5LXs8nGh_s8EqYFBnoWsMiyhl6wIyMGYFxeTKbk5gLanTS_a3CpGE8n9KG4RtR90.vY38h4ueeh2J5Y-KjYk1GuBtsZNAXkhP77utimEjyTI&dib_tag=se&keywords=bible+du+diable&nsdOptOutParam=true&qid=1731402630&sr=8-1";
-
-        }
-    } else {
-        document.body.classList.remove('background-special'); // Retire la classe si l'année n'est pas 666
-        // Restaurer le lien pour les autres années
-        if (specialLink) {
-            specialLink.href = "https://www.amazon.fr/SAINTE-BIBLE-DARBY-2022-Nouvelle/dp/2970154706?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AAM4LBRNSI1SA";
-            
-        }
-    }
-
-    // Appliquer une classe conditionnelle sur le body ou un autre élément
-    if (bissextile) {
-        document.body.classList.add('bissextile');
-    } else {
-        document.body.classList.remove('bissextile');
-    }
-
-        // Création du tableau pour afficher les fêtes
-const fetes = calculerFetesMobiles(year);
-let tableHTML = `
-    <table class="table-auto w-full border-collapse">
-        <thead>
-            <tr>
-                <th class="border-b-2 border-gray-300 p-2 text-left font-semibold">Fête</th>
-                <th class="border-b-2 border-gray-300 p-2 text-left font-semibold">Date</th>
-            </tr>
-        </thead>
-        <tbody>
-`;
-
-Object.entries(fetes).forEach(([nom, date]) => {
-    tableHTML += `
-        <tr>
-            <td class="border-b border-gray-200 p-2"><a href="https://www.google.com/search?q=${nom}" target="_blank" class="text-blue-500 hover:underline">${nom}</a></td>
-            <td class="border-b border-gray-200 p-2">${formatDate(date)}</td>
-        </tr>
-    `;
-});
-
-tableHTML += `
-        </tbody>
-    </table>
-`;
-
-// Insertion du tableau dans l'élément HTML
-fetesList.innerHTML = tableHTML;
-
-// Afficher la section des fêtes mobiles
-fetesCard.style.display = 'block';
-}
     // Fonction de mise à jour de l'affichage
     function updateDisplay() {
         const year = parseInt(yearInput.value);
         yearDisplay.textContent = year;
 
         // Affichage année bissextile
-    const bissextile = isBissextile(year);
-    bissextileResult.className = `p-4 rounded-lg text-center text-lg ${bissextile ? 'bg-green-100 bissextile' : 'bg-orange-100'}`;
-    bissextileResult.textContent = bissextile ? 
-        "✨ Cette année est bissextile ✨" : 
-        "Cette année n'est pas bissextile";
+        const bissextile = isBissextile(year);
+        // Si l'année est 0, afficher "Cette année n'existe pas"
+        if (year === 0) {
+            bissextileResult.textContent = "Cette année n'existe pas";
+        } else {
+            // Sinon, on applique la logique habituelle pour vérifier si l'année est bissextile
+            bissextileResult.textContent = bissextile ? "✨ Cette année est bissextile ✨" : "Cette année n'est pas bissextile";
+        }
         // Appliquer une classe conditionnelle sur le body si l'année est "666"
         if (year === 666) {
         document.body.classList.add('background-special'); // Ajoute une classe pour le fond spécial
@@ -202,12 +142,19 @@ fetesCard.style.display = 'block';
     }
 
         // Vérification si l'année est valide (inférieure à 325 ou égale à 0)
-        if (year <= 0 || year < 325) {
+        if ( year < 325) {
             // Masquer la carte des fêtes et vider le contenu de la liste des fêtes si l'année est invalide
             fetesCard.style.display = 'none';  // Masquer la carte des fêtes
             fetesList.innerHTML = '';  // Effacer toute fête précédente
             return;  // Sortir de la fonction pour ne pas continuer avec l'affichage des fêtes
-        } else {
+        
+        } if (year === 0) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = "Cette année n'existe pas";
+            errorMessage.style.display = 'block';  // Afficher le message d'erreur
+            return;
+            
+        }else {
             // Afficher la carte des fêtes si l'année est valide
             fetesCard.style.display = 'block';
         }
