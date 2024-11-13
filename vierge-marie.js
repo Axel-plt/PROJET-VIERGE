@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calcul année bissextile
     function isBissextile(year) {
         if (year < 1582) {
-            // Avant 1582, les années bissextiles sont les années de siècles (divisibles par 100)
-            return year % 100 === 0;
+            // Avant 1582, les années de siècles (divisibles par 100) sont aussi bissextiles
+            return year % 4 === 0 || year % 100 === 0;
         } else {
             // Après 1582, appliquer la règle moderne
             return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.entries(fetes).forEach(([nom, date]) => {
         tableHTML += `
             <tr>
-                <td class="border-b border-gray-200 p-2">${nom}</td>
+                <td class="border-b border-gray-200 p-2"><a href="https://www.google.com/search?q=${nom}" target="_blank" class="text-blue-500 hover:underline">${nom}</a></td>
                 <td class="border-b border-gray-200 p-2">${formatDate(date)}</td>
             </tr>
         `;
@@ -262,7 +262,7 @@ function updateDisplay() {
   churchCountDisplay.textContent = churchCount;
   buyChurchButton.textContent = `Acheter une église (${formatNumber(churchCost)} hosties)`;
 
-  buyChurchButton.disabled = count < churchCost || count < 2500;
+  buyChurchButton.disabled = count < churchCost;
   buyPriestButton.disabled = count < priestCost;
 
   if (count >= 2500) {
