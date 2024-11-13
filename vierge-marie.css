@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(../../IMAGES/Vierge.jfif);
+    background-image: url(./IMAGES/Vierge.jfif);
     background-size: cover;
     background-position: center;
     transition: background 0.5s ease;
@@ -152,7 +152,7 @@ a {
 
 /* Classe pour le fond spécial quand l'année est 666 */
 .background-special {
-    background-image: url(../../IMAGES/Satan.jfif);
+    background-image: url(./IMAGES/Satan.jfif);
     background-size: cover;
     background-position: center;
     transition: background 0.5s ease;
