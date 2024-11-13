@@ -256,7 +256,7 @@ function buyChurch() {
     churchCount += 1;
     hostiesPerSecond += 10;  // 10 hosties par seconde par église
 
-    churchCost = Math.floor(churchCost * 1.5);  // Coût exponentiel
+    churchCost = Math.floor(churchCost * 1.2);  // Coût exponentiel
     updateDisplay();
   }
 }
