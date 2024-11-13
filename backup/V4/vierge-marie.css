@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(../../IMAGES/Vierge.jfif);
+    background-image: url(./IMAGES/Vierge.jfif);
     background-size: cover;
     background-position: center;
     transition: background 0.5s ease;
@@ -152,7 +152,7 @@ a {
 
 /* Classe pour le fond spécial quand l'année est 666 */
 .background-special {
-    background-image: url(../../IMAGES/Satan.jfif);
+    background-image: url(./IMAGES/Satan.jfif);
     background-size: cover;
     background-position: center;
     transition: background 0.5s ease;
@@ -162,28 +162,11 @@ a {
 .page-layout {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    /* Trois colonnes */
     width: 100%;
     min-height: 100vh;
-}
-
-.main-column {
-    grid-column: 2 / 3; /* Centre la colonne principale */
-}
-
-/* Pour les petits écrans */
-@media (max-width: 768px) {
-    .page-layout {
-        grid-template-columns: 1fr; /* Une seule colonne qui occupe toute la largeur */
-    }
-    .side-column {
-        display: none; /* Masquer les colonnes latérales */
-    }
-    .side-column1 {
-        display: none; /* Masquer les colonnes latérales */
-    }
-    .main-column {
-        grid-column: 1 / -1; /* Étendre la colonne principale sur toute la largeur */
-    }
+    /* Assure que les éléments commencent en haut */
+    
 }
 
 .side-column img {
@@ -219,28 +202,29 @@ a {
 }
 
 
-.container {
-    align-items: center;
-    text-align: center;
-    max-width: 1000px;
+.pub-column {
+    background-color: rgb(255, 255, 255, 0.1);
     padding: 1rem;
-    padding-top: 3%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    inline-size: auto;
-    width: 90%;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
 }
 
-.secondary-img {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
+.text-column {
+    background-color: rgb(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .video-container {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 ratio */
+    width: 100%;          /* largeur du conteneur */
+    padding-bottom: 56.25%; /* pour un ratio de 16:9 (9/16 = 0.5625 soit 56.25%) */
     height: 0;
     overflow: hidden;
 }
@@ -251,47 +235,11 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-}
-
-.title {
-    font-size: 1.8rem;
-    
-}
-.subtitle {
-    font-size: 1rem;
-}
-.result-text {
-    font-size: 1rem;
-}
-
-@media (max-width: 480px) {
-    /* Polices et marges réduites pour les écrans très petits */
-    .title {
-        font-size: 1.5rem;
-    }
-    .subtitle {
-        font-size: 0.9rem;
-    }
-    .result-text {
-        font-size: 0.9rem;
-    }
 }
 
 
-.text-column{
-    background-color: rgba(255, 255, 255, 0.7);
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-}
 
-.pub-column{
-    margin-top:2.5%;
-}
+
 
 
 
@@ -435,6 +383,5 @@ input:checked + .slider:before {
     transform: translateX(14px);
 }
 
-.hidden {
-    display: none;
-}
+
+  

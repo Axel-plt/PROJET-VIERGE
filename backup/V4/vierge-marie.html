@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calendrier Liturgique</title>
-        <link rel="icon" href="../..//IMAGES/Icon.jfif" type="image/png">
+        <link rel="icon" href="./IMAGES/Icon.jfif" type="image/png">
         <link rel="stylesheet" href="vierge-marie.css">
     </head>
     <body>
@@ -12,41 +12,39 @@
             <!-- Colonne latérale gauche -->
             <div class="side-column">
             <!-- Contenu optionnel ou décoratif ici -->
-                <div id="ad-container" class="hidden">
-                    <div class="pub-column">
-                        <a id="specialLink" href="#" target="_blank"><img src="../../IMAGES/Bible.jfif" alt="">
-                            <div class="text-column">
-                                <h2>Pour vous guidez vers le droit chemin</h2>
+                <div class="pub-column">
+                    <a id="specialLink" href="#" target="_blank"><img src="./IMAGES/Bible.jfif" alt="">
+                        <div class="text-column">
+                            <h2>Pour vous guidez vers le droit chemin</h2>
+                        </div>
+                    </a>  
+                    <div class="clicker-container">
+                        <div class="title-container">
+                            <h1>Hostie Clicker</h1>
+                        </div>
+                        <div class="counter-container">
+                            <button id="click-button">
+                                <img src="./IMAGES/Hostie.jfif" width="45px" class="img-clicker">
+                            </button>
+                            <p id="counter" class="hostie-counter">0 hosties</p>
+                        </div>
+                        <div class="purchase-container">
+                            <div class="purchase-item">
+                                <img src="./IMAGES/prêtre clicker.jpg" alt="Prêtre" class="item-icon">
+                                <span id="priest-count">0</span>
+                                <button id="buy-priest-button">Acheter un prêtre (10 hosties)</button>
                             </div>
-                        </a>  
-                        <div class="clicker-container">
-                            <div class="title-container">
-                                <h1>Hostie Clicker</h1>
-                            </div>
-                            <div class="counter-container">
-                                <button id="click-button">
-                                    <img src="../../IMAGES/Hostie.jfif" width="45px" class="img-clicker">
-                                </button>
-                                <p id="counter" class="hostie-counter">0 hosties</p>
-                            </div>
-                            <div class="purchase-container">
-                                <div class="purchase-item">
-                                    <img src="../../IMAGES/prêtre clicker.jpg" alt="Prêtre" class="item-icon">
-                                    <span id="priest-count">0</span>
-                                    <button id="buy-priest-button">Acheter un prêtre (10 hosties)</button>
-                                </div>
-                                <div class="purchase-item" id="church-container">
-                                    <img src="../../IMAGES/église.jfif" alt="Église" class="item-icon">
-                                    <span id="church-count">0</span>
-                                    <button id="buy-church-button" disabled>Acheter une église (500 hosties)</button>
-                                </div>
+                            <div class="purchase-item" id="church-container">
+                                <img src="./IMAGES/église.jfif" alt="Église" class="item-icon">
+                                <span id="church-count">0</span>
+                                <button id="buy-church-button" disabled>Acheter une église (500 hosties)</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Contenu principal -->
-            <div class="container main-column">
+            <div class="container">
                 <div class="selection-container">
                     <h1 class="title">Calendrier Liturgique</h1>
                     <p class="subtitle">Calcul des fêtes mobiles et années bissextiles</p>
@@ -66,7 +64,7 @@
                     </div>
                     <div class="switch-container">
                         <label class="switch">
-                            <input type="checkbox" id="toggle-columns" onchange="toggleInfo()">
+                            <input type="checkbox" id="toggle-columns">
                             <span class="slider"></span>
                         </label>
                     </div>
@@ -83,8 +81,7 @@
                 </div>
             </div>
             <!-- Colonne latérale droite -->
-            <div class="side-column1">
-                <div id="ad-container1" class="hidden">
+            <div class="side-column">
                 <div class="pub-column">
                     <!-- Contenu optionnel ou décoratif ici -->
                     <div class="video-container">
@@ -95,7 +92,6 @@
                             <h2>Venez vous former avec nous </h2>
                         </a>
                     </div>
-                </div>
                 </div> 
             </div>
         </div>

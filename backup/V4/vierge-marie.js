@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.entries(fetes).forEach(([nom, date]) => {
         tableHTML += `
             <tr>
-                <td class="border-b border-gray-200 p-2">${nom}</td>
+                <td class="border-b border-gray-200 p-2"><a href="https://www.google.com/search?q=${nom}" target="_blank" class="text-blue-500 hover:underline">${nom}</a></td>
                 <td class="border-b border-gray-200 p-2">${formatDate(date)}</td>
             </tr>
         `;
@@ -165,32 +165,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-// Récupère les éléments de la page
+// Récupérer le switch et les colonnes
 const toggleSwitch = document.getElementById("toggle-columns");
-const sideColumns = document.querySelectorAll(".side-column");
-const adContainer = document.getElementById("ad-container");
-const sideColumns1 = document.querySelectorAll(".side-column");
-const adContainer1 = document.getElementById("ad-container1");
+const leftColumn = document.querySelectorAll(".side-column")[0];
+const rightColumn = document.querySelectorAll(".side-column")[1];
 
-// Fonction pour afficher ou masquer les colonnes
-function toggleInfo() {
-    // Ajoute ou retire la classe 'hidden' en fonction de l'état du switch
+// Fonction pour changer l'affichage des colonnes
+toggleSwitch.addEventListener("change", function () {
     if (toggleSwitch.checked) {
-        sideColumns.forEach(column => column.classList.remove('hidden'));
-        adContainer.classList.remove('hidden');
-        sideColumns1.forEach(column => column.classList.remove('hidden'));
-        adContainer1.classList.remove('hidden');
+        // Afficher les colonnes
+        leftColumn.style.display = "block";
+        rightColumn.style.display = "block";
     } else {
-        sideColumns.forEach(column => column.classList.add('hidden'));
-        adContainer.classList.add('hidden');
-        sideColumns1.forEach(column => column.classList.add('hidden'));
-        adContainer1.classList.add('hidden');
+        // Masquer les colonnes
+        leftColumn.style.display = "none";
+        rightColumn.style.display = "none";
     }
-}
+});
 
+document.getElementById('toggle-columns').addEventListener('change', function() {
+    const sideColumns = document.querySelectorAll('.side-column');
+    const pageLayout = document.querySelector('.page-layout');
 
+    if (this.checked) {
+        // Masquer les colonnes latérales
+        sideColumns.forEach(column => column.classList.add('hidden'));
+        // Centrer la colonne principale
+        pageLayout.classList.add('center-main');
+    } else {
+        // Afficher les colonnes latérales
+        sideColumns.forEach(column => column.classList.remove('hidden'));
+        // Réinitialiser la mise en page normale
+        pageLayout.classList.remove('center-main');
+    }
+});
 
 
 // script.js
